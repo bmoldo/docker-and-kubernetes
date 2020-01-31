@@ -1,0 +1,29 @@
+# first install docker on the machine
+sudo install docker
+
+# enable docker daemon at start 
+systemctl enable docker
+
+# start the docker daemon
+systemctl start docker
+
+# create the docker group
+sudo groupadd docker
+
+# add user to the docker group
+sudo usermod -aG docker $USER
+
+# set the right permissions to docker.socket file in /var/run
+sudo chmod 666 /var/run/docker.socket
+
+# search for a lamp stack image on docker repository
+sudo docker search lamp
+
+# pull the wanted image
+sudo docker pull tutum/lamp
+
+# run the docker image
+sudo docker run -it tutum/lamp
+
+# for the bash script in docker image run
+sudo docker run -it tutum/lamp /bin/bash
